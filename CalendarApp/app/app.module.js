@@ -104,8 +104,9 @@ angular.module('ngCalendar')
                     delete this.todo[day];
                     this.todo.splice(j,1);
                 }
-            }
             j+=1;
+	    }
+            
         }
     });
 
