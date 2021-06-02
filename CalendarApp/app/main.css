@@ -1,0 +1,20 @@
+html {
+  background-color: white;
+}
+.ftr {
+  background-color: teal;
+}
+body {
+  height: auto;
+}
+.strikethrough {
+  text-decoration: line-through;
+  color: gray;
+}
+.bg {
+  background: url(assets/img/bg.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

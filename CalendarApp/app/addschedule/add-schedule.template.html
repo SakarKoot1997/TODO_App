@@ -1,0 +1,52 @@
+<div layout="row" layout-xs="column" class="mt-5">
+    <div flex="" class="p-5">
+        <kendo-calendar ng-model='$ctrl.calendarDate'></kendo-calendar>
+    </div>
+    <div flex="">
+        <span class="text-secondary">Selected Date <span class="text-danger">{{$ctrl.temp}}</span></span>
+        <div layout="row" layout-xs="column">
+            <div flex="70">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Task Name</label>
+                    <input ng-model='$ctrl.toAdd'>
+                </md-input-container>
+            </div>
+            <div flex="">
+                <md-button class="md-raised" ng-disabled="$ctrl.toAdd =='' || $ctrl.toAdd == null"
+                    ng-click='$ctrl.addToDo($ctrl.toAdd); $ctrl.toAdd = null'>Add Task</md-button>
+            </div>
+        </div>
+        <div ng-if="$ctrl.getScheduleFunction()!= -1" class="table-responsive">
+
+            <table class="table table-borderless">
+                <tr>
+                    <td><span class="text-danger">List of work items-</span></td>
+                    <td> 
+                        <a class="md-primary md-raised" href="" ng-click="$ctrl.showConfirm($event)">
+                            Clear All
+                        </a>
+                </td>
+                </tr>
+                <tr ng-repeat="todo in $ctrl.getScheduleFunction()['tasks']">
+                    <td>
+                        <md-checkbox ng-model="todo['status']">
+
+                            <span ng-class="todo['status'] ? 'strikethrough':'null'">{{todo['task']}}</span>
+                        </md-checkbox>
+                    </td>
+                    <td>
+                        <md-button class="md-icon-button" ng-click="$ctrl.removeItem(todo)" aria-label="More">
+                            <span class="material-icons">
+                                delete
+                            </span>
+                        </md-button>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div ng-if="$ctrl.getScheduleFunction() == -1">
+            <p class="text-danger">No work items found. Add Items to TODO List!</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div layout="row" layout-xs="column"  class="mt-5 pt-5">
+  <div flex="" class="mt-5 p-5" >
+      <h1 class="md-display-3">{{ $ctrl.time}}</h1>
+      <h4 class="text-secondary" >{{ clock | date:'HH:mm:ss'}}</h4>
+  </div>
+  <div flex="">
+    <h1 class="md-display-1">Today's TODO List</h1>
+    <div ng-if="$ctrl.todaySchedule != -1">
+      
+      <table class="table mt-2">
+        <tr ng-repeat="todo in $ctrl.todaySchedule['tasks']">
+            <td style="width: 90%;">{{todo['task']}}</td>
+            <td style="width: 10%;">
+                <md-button class="md-icon-button" ng-click="$ctrl.removeItem(todo)" aria-label="More">
+                    <md-icon md-svg-icon="assets/img/cancel-svgrepo-com.svg"></md-icon>
+                </button>
+            </td>
+        </tr>
+      </table>
+    </div>    
+    <div ng-if="$ctrl.todaySchedule == -1">
+      <p class="text-danger">No work items found. Add Items to TODO List!</p>
+    </div>    
+  </div>
+</div>
+

@@ -1,0 +1,24 @@
+<h1>List of All Schedules- </h1>
+
+<kendo-grid options="$ctrl.getGridOptions()">
+    <div k-detail-template>
+        <div>
+            <div kendo-grid k-options="$ctrl.detailGridOptions(dataItem)">
+
+            </div>
+        </div>
+    </div>
+</kendo-grid>
+
+<!--
+<table class="table table-bordered">
+    <tr ng-repeat-start='(day,schedule) in $ctrl.allschedule'>
+        <td rowspan="{{schedule.length + 1}}">{{day}}</td>
+    </tr>
+    <tr ng-repeat-start='todo in schedule'>
+        <td>{{todo}}</td>
+    </tr>
+    <tr ng-repeat-end ng-if="false"></tr>
+    <tr ng-repeat-end ng-if="false"></tr>
+</table>
+-->
